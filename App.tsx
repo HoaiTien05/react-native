@@ -63,8 +63,8 @@
 // export default App;
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import AppNavigatorProduct from './src/components/buoi11Sqlite/AppNavigatorProduct';
-import AppTabs from './src/components/buoi11Sqlite/AppTabs';
+import AppNavigatorProduct from './src/components/buoi11Sqlite_and_FianlExam/AppNavigatorProduct';
+import AppTabs from './src/components/buoi11Sqlite_and_FianlExam/AppTabs';
 function App() {
   return (
     <NavigationContainer>
