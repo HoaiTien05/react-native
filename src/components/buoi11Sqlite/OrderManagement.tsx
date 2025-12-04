@@ -40,12 +40,35 @@ const OrderManagement = () => {
       <Text>Phương thức thanh toán: {item.payment_method}</Text>
 
       <View style={styles.buttonsRow}>
+        {/* CHỜ XỬ LÝ */}
+        <TouchableOpacity
+          style={[styles.statusBtn, {backgroundColor: '#9E9E9E'}]}
+          onPress={() => changeStatus(item.id, 'Chờ xử lý')}>
+          <Text style={styles.statusText}>Chờ xử lý</Text>
+        </TouchableOpacity>
+
+        {/* ĐÃ DUYỆT */}
         <TouchableOpacity
           style={[styles.statusBtn, {backgroundColor: '#4CAF50'}]}
           onPress={() => changeStatus(item.id, 'Đã duyệt')}>
           <Text style={styles.statusText}>Đã duyệt</Text>
         </TouchableOpacity>
 
+        {/* ĐANG GIAO */}
+        <TouchableOpacity
+          style={[styles.statusBtn, {backgroundColor: '#2196F3'}]}
+          onPress={() => changeStatus(item.id, 'Đang giao')}>
+          <Text style={styles.statusText}>Đang giao</Text>
+        </TouchableOpacity>
+
+        {/* HOÀN THÀNH */}
+        <TouchableOpacity
+          style={[styles.statusBtn, {backgroundColor: '#673AB7'}]}
+          onPress={() => changeStatus(item.id, 'Hoàn thành')}>
+          <Text style={styles.statusText}>Hoàn thành</Text>
+        </TouchableOpacity>
+
+        {/* ĐÃ HỦY */}
         <TouchableOpacity
           style={[styles.statusBtn, {backgroundColor: '#f44336'}]}
           onPress={() => changeStatus(item.id, 'Đã hủy')}>
@@ -88,15 +111,17 @@ const styles = StyleSheet.create({
   orderId: {fontWeight: 'bold', marginBottom: 5},
   buttonsRow: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
     justifyContent: 'space-between',
     marginTop: 10,
   },
   statusBtn: {
-    padding: 10,
+    padding: 8,
     borderRadius: 8,
-    flex: 1,
-    marginHorizontal: 5,
+    width: '48%',
+    marginVertical: 4,
     alignItems: 'center',
   },
+
   statusText: {color: '#fff', fontWeight: 'bold'},
 });

@@ -581,3 +581,24 @@ export const updateOrderStatus = async (orderId: number, newStatus: string) => {
   }
 };
 
+export const fetchOrderItems = async (orderId: number) => {
+  const db = await getDb();
+  const [result] = await db.executeSql(
+    `SELECT order_items.*, products.name, products.img 
+     FROM order_items
+     JOIN products ON order_items.product_id = products.id
+     WHERE order_items.order_id = ?`,
+    [orderId]
+  );
+
+  const items = [];
+  const rows = result.rows;
+
+  for (let i = 0; i < rows.length; i++) {
+    items.push(rows.item(i));
+  }
+
+  return items;
+};
+
+
